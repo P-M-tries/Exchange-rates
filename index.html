@@ -12,14 +12,80 @@
 <body>
     <div align="center">
 
-
     <div id="initial-box">
+
     <h1>Exchange rates</h1>
-    <div>What date are you interested in? <input type="text" placeholder="" id="date-input" required></div>
-    <div>What currency would you like to use as a base for the conversion? <input type="text" placeholder="USD" id="currency-input" required></div>
-    <div>State the amount you'd like converted <input type="text" placeholder="" id="amount-input"></div>
+    <h5 class="text-muted">Fill in the following form to access a list of exchange rates according to your preferences.</h5>
     <br>
-    <button>Convert</button>
+    
+    <form id="input-data-form">
+        <div class="form-row">
+    
+    <div class="col-md">
+        <div class="input-group">
+            <div class="input-group-prepend">
+        <span class="input-group-text">Date</span>
+        </div>
+        <input type="text" class="form-control" placeholder="2010-01-26" id="date-input" required>
+    <div class="invalid-feedback" id="error-container0"></div>
+    </div>
+    </div>
+    <div class="col-ms">
+        <select class="custom-select form-control" id="select-menu" required>     
+            <option value="EUR">EUR</option>
+            <option value="MYR">MYR</option>
+            <option value="KRW">KRW</option>
+            <option value="GBP">GBP</option>
+            <option value="EEK">EEK</option>
+            <option value="MXN">MXN</option>
+            <option value="USD">USD</option>
+            <option value="ZAR">ZAR</option>
+            <option value="NZD">NZD</option>
+            <option value="NOK">NOK</option>
+            <option value="CNY">CNY</option>
+            <option value="TRY">TRY</option>
+            <option value="BGN">BGN</option>
+            <option value="PLN">PLN</option>
+            <option value="SGD">SGD</option>
+            <option value="CHF">CHF</option>
+            <option value="THB">THB</option>
+            <option value="JPY">JPY</option>
+            <option value="LTL">LTL</option>
+            <option value="RUB">RUB</option>
+            <option value="BRL">BRL</option>
+            <option value="INR">INR</option>
+            <option value="IDR">IDR</option>
+            <option value="SEK">SEK</option>
+            <option value="RON">RON</option>
+            <option value="AUD">AUD</option>
+            <option value="CZK">CZK</option>
+            <option value="HUF">HUF</option>
+            <option value="DKK">DKK</option>
+            <option value="PHP">PHP</option>
+            <option value="LVL">LVL</option>
+            <option value="HKD">HKD</option>
+            <option value="CAD">CAD</option>
+          </select>
+          <div class="invalid-feedback" id="error-container1"></div>
+        </div>
+
+        <div class="col-md">
+            <div class="input-group">
+                <div class="input-group-prepend">
+            <span class="input-group-text">Amount</span>
+            </div>
+            <input type="text" class="form-control" placeholder="1" id="amount-input">
+        <div class="invalid-feedback" id="error-container2"></div>
+        </div>
+        </div>
+        
+        </div>
+    </div>
+    </form>
+
+        <br>
+        <button class="btn btn-primary" id="convert-button">Convert</button>
+
     </div>
 
     <div class="not-display">
