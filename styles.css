@@ -1,0 +1,16 @@
+body {
+    text-align: center;
+    background-image: url('https://cdn.pixabay.com/photo/2017/01/20/21/00/background-1995912_640.jpg');
+}
+
+.not-display {
+    display: none;
+}
+
+#initial-box {
+    background-color: rgba(255, 255, 255, 0.836);
+    width: 50%;
+    border-radius: 3px;
+    padding: 10px;
+    padding-bottom: 30px;
+}
