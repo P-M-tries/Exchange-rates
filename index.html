@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Exchange rates</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='styles.css'>
+    <link rel='stylesheet' href='node_modules/bootstrap/dist/css/bootstrap.css'>
+
+</head>
+<body>
+    <div align="center">
+
+
+    <div id="initial-box">
+    <h1>Exchange rates</h1>
+    <div>What date are you interested in? <input type="text" placeholder="" id="date-input" required></div>
+    <div>What currency would you like to use as a base for the conversion? <input type="text" placeholder="USD" id="currency-input" required></div>
+    <div>State the amount you'd like converted <input type="text" placeholder="" id="amount-input"></div>
+    <br>
+    <button>Convert</button>
+    </div>
+
+    <div class="not-display">
+        The exchange rates of<div id="date-output"></div>:
+        <div class="currency-box" id="currency-input-box">Base currency:</div>
+        <div class="" id="exchange-rates-list">
+            <table>
+            </table>
+        </div>
+
+        <div id="amount-input-box"></div> ==> <div id="amount-output-box"></div>
+
+        <button id="top-button"></button>
+
+    </div>
+
+
+    </div>
+    <script src='functions.js'></script>
+    <script src='main.js'></script>
+</body>
+</html>
