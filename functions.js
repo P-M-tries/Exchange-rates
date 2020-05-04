@@ -24,11 +24,8 @@
         const success = manageErrors(errors, $form) === 0;
 
         if(success) {
-            console.log('VA TODO BIEN')
             return '';
         }
-
-        // si todo pasa, proseguir a calcular
 
     };
 
@@ -42,6 +39,31 @@
             return 'The date must have the following format: year-month-day (eg.: 2010-01-12)';
         }
 
+        let dateMax = new Date().toJSON().slice(0,10).replace(/-/g,'-');
+        let splittedMaxDate = dateMax.split('-');
+        let dateMin = '1999';
+
+        let splittedDate = date.split('-');
+        
+
+        if(Number(splittedDate[0]) < dateMin) {
+            return 'The year must be 1999 or later';
+        }
+
+        if(Number(splittedDate[0]) === Number(splittedMaxDate[0])) {
+            if(Number(splittedDate[1]) > Number(splittedMaxDate[1])){
+                return 'The date must not be in the future';
+            }else{
+                let oneMoreDayFromToday = Number(splittedMaxDate[2]) + 1;
+                if(Number(splittedDate[2]) >= oneMoreDayFromToday){ 
+                    return 'The date must not be in the future';
+                } else {
+                    return '';
+                };
+            };
+            
+        };
+
         return ''
     };
 
@@ -49,7 +71,7 @@
 
         let currencyList = [ 'CAD', 'HKD', 'LVL', 'PHP', 'DKK', 'HUF', 'CZK', 'AUD', 'RON',
         'SEK', 'IDR', 'INR', 'BRL', 'RUB', 'LTL', 'JPY', 'THB', 'CHF', 'SGD', 'PLN', 'BGN',
-        'TRY', 'CNY', 'NOK', 'NZD', 'ZAR', 'USD', 'MXN', 'EEK', 'GBP', 'KRW', 'MYR', 'EUR', 33]
+        'TRY', 'CNY', 'NOK', 'NZD', 'ZAR', 'USD', 'MXN', 'ILS', 'GBP', 'KRW', 'MYR', 'EUR', 33]
 
         if (!currencyList.includes(base)){
             return 'The currency entered is invalid';
