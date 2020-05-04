@@ -12,7 +12,7 @@
 <body>
     <div align="center">
 
-    <div id="initial-box">
+    <div class="glass-box" id="first-glass-box">
 
     <h1>Exchange rates</h1>
     <h5 class="text-muted">Fill in the following form to access a list of exchange rates according to your preferences.</h5>
@@ -36,7 +36,7 @@
             <option value="MYR">MYR</option>
             <option value="KRW">KRW</option>
             <option value="GBP">GBP</option>
-            <option value="EEK">EEK</option>
+            <option value="ILS">ILS</option>
             <option value="MXN">MXN</option>
             <option value="USD">USD</option>
             <option value="ZAR">ZAR</option>
@@ -88,17 +88,27 @@
 
     </div>
 
-    <div class="not-display">
-        The exchange rates of<div id="date-output"></div>:
-        <div class="currency-box" id="currency-input-box">Base currency:</div>
-        <div class="" id="exchange-rates-list">
-            <table>
-            </table>
-        </div>
+<div align="center">
+    <div class="not-display" id="exchange-list">
 
-        <div id="amount-input-box"></div> ==> <div id="amount-output-box"></div>
+        <div class="glass-box">
+        <h5>Exchange rates of<div id="date-output"></div></h5>
+            <table class="table">
+                <thead>
+                  <tr id="table-head">
 
-        <button id="top-button"></button>
+                  </tr>
+                </thead>
+                <tbody id="exchange-tbody">
+
+                </tbody>
+              </table>
+            </div>
+
+
+        <button class="btn btn-primary" id="top-button" onclick="toTop()">Go to top</button>
+    </div>
+</div>
 
     </div>
 
