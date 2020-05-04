@@ -189,5 +189,43 @@
         $tableHead.appendChild($th);
     }
 
+    function clearTable(){
+        const $tBody = document.querySelector('#exchange-tbody');
+        $tBody.innerHTML = '';
+        const $tableHead = document.querySelector('#table-head')
+        $tableHead.innerHTML = '';
+    };
+
+    function createTable(input) {
+        const date = document.querySelector('#date-output');
+        date.innerText = input[0];
+        const $tableBox = document.querySelector('#exchange-list');
+        $tableBox.classList.remove('not-display');
+
+
+        const $tableHead = document.querySelector('#table-head')
+        const $currencyTh = document.createElement('th');
+        $currencyTh.setAttribute('scope', 'col');
+        $currencyTh.innerText = 'Currency';
+
+        const $exchangeTh = document.createElement('th');
+        $exchangeTh.setAttribute('scope', 'col');
+        $exchangeTh.innerText = input[1];
+
+        $tableHead.appendChild($currencyTh);
+        $tableHead.appendChild($exchangeTh);
+    };
+
+    function toTop() {
+        document.documentElement.scrollTop = 0;
+    };
+
+    function clearErrors() {
+        for(let i = 0; i<=2; i++){
+            let errorContainer = document.querySelector(`#error-container${i}`)
+            errorContainer.innerHTML = ''
+        }
+    };
+
 
 
