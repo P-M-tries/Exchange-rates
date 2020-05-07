@@ -27,6 +27,7 @@
             return '';
         }
 
+
     };
 
     function validateDate(date) {
@@ -139,6 +140,7 @@
             const $tr = document.createElement('tr');
             const $currencyTh = document.createElement('th');
             const $exchangeOne = document.createElement('td');
+            $exchangeOne.setAttribute('id', `${prop}-exchange`)
 
             const currency = prop;
             $currencyTh.innerText = currency;
@@ -152,7 +154,7 @@
             if (Number(input[2]) !== 1) {
                 const $exchangeAmount = document.createElement('td');
                 const exchangeForAmount = obj[prop] * Number(input[2]);
-                $exchangeAmount.innerText = exchangeForAmount.toFixed(2);
+                $exchangeAmount.innerText = exchangeForAmount.toFixed(2);                
                 $tr.appendChild($exchangeAmount);
                 };
 
