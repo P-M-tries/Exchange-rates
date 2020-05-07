@@ -97,6 +97,112 @@
         return errorNumber;
     };
 
+    function summonAPI(input) {
+
+        fetch(`https://api.exchangeratesapi.io/${input[0]}?base=${input[1]}`)
+            .then((response) => {
+                return response.json();
+            })
+            .then((myJson) => {
+                fillTable(myJson.rates, input);
+            });
+
+    };
+
+    function fillTable(obj, input) {
+        for (const prop in obj) {
+            const $tBody = document.querySelector('#exchange-tbody');
+            const $tr = document.createElement('tr');
+            const $currencyTh = document.createElement('th');
+            const $exchangeOne = document.createElement('td');
             $exchangeOne.setAttribute('id', `${prop}-exchange`)
+
+            const currency = prop;
+            $currencyTh.innerText = currency;
+
+            const exchangeRate = obj[prop].toFixed(2);
+            $exchangeOne.innerText = exchangeRate;
+
+            $tr.appendChild($currencyTh);
+            $tr.appendChild($exchangeOne);
+
+            if (Number(input[2]) !== 1) {
+                const $exchangeAmount = document.createElement('td');
+                const exchangeForAmount = obj[prop] * Number(input[2]);
+                $exchangeAmount.innerText = exchangeForAmount.toFixed(2);                
+                $tr.appendChild($exchangeAmount);
+                };
+
+
+
+            $tBody.appendChild($tr);
+        };
+
+        const inputAmount = Number(input[2]);
+
+        if (inputAmount !== 1) {
+            createAnotherColumnTitle(input);
+        };
+        
+
+    };
+
+    function createAnotherColumnTitle(input) {
+        const $tableHead = document.querySelector('#table-head')
+        const $th = document.createElement('th');
+        $th.setAttribute('scope', 'col');
+
+
+
+        const $amountDiv = document.createElement('div');
+        $amountDiv.setAttribute('id','your-amount');
+        $amountDiv.innerText = input[2];
+        $th.appendChild($amountDiv);
+
+        const $currencyDiv = document.createElement('div');
+        $currencyDiv.innerText = input[1];
+        $th.appendChild($currencyDiv);
+
+        $tableHead.appendChild($th);
+    }
+
+    function clearTable(){
+        const $tBody = document.querySelector('#exchange-tbody');
+        $tBody.innerHTML = '';
+        const $tableHead = document.querySelector('#table-head')
+        $tableHead.innerHTML = '';
+    };
+
+    function createTable(input) {
+        const date = document.querySelector('#date-output');
+        date.innerText = input[0];
+        const $tableBox = document.querySelector('#exchange-list');
+        $tableBox.classList.remove('not-display');
+
+
+        const $tableHead = document.querySelector('#table-head')
+        const $currencyTh = document.createElement('th');
+        $currencyTh.setAttribute('scope', 'col');
+        $currencyTh.innerText = 'Currency';
+
+        const $exchangeTh = document.createElement('th');
+        $exchangeTh.setAttribute('scope', 'col');
+        $exchangeTh.innerText = input[1];
+
+        $tableHead.appendChild($currencyTh);
+        $tableHead.appendChild($exchangeTh);
+    };
+
+    function toTop() {
+        document.documentElement.scrollTop = 0;
+    };
+
+    function clearErrors() {
+        for(let i = 0; i<=2; i++){
+            let errorContainer = document.querySelector(`#error-container${i}`)
+            errorContainer.innerHTML = ''
+        }
+    };
+
 
 
