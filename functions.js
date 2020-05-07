@@ -24,11 +24,9 @@
         const success = manageErrors(errors, $form) === 0;
 
         if(success) {
-            console.log('VA TODO BIEN')
             return '';
         }
 
-        // si todo pasa, proseguir a calcular
 
     };
 
@@ -99,5 +97,6 @@
         return errorNumber;
     };
 
+            $exchangeOne.setAttribute('id', `${prop}-exchange`)
 
 
