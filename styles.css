@@ -2,6 +2,7 @@ body {
     text-align: center;
     background-image: url('https://www.publicdomainpictures.net/pictures/60000/velka/quatrefoil-pattern-background-green.jpg');
     background-size: 40%; 
+    padding-bottom: 40px;
 }
 
 form {
@@ -11,13 +12,20 @@ form {
     display: none;
 }
 
-#initial-box {
+.glass-box {
     background-color: rgba(255, 255, 255, 0.836);
     width: 50%;
     border-radius: 3px;
     padding: 10px;
     padding-bottom: 30px;
-    margin-top: 15%;
+    margin-top: 5%;
+    margin-bottom: 20px;
+}
+
+#first-glass-box {
+    margin-top: 10%;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 input:focus::placeholder{
